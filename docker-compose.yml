@@ -7,10 +7,13 @@ services:
       args:
         PYTHON_VERSION: 3.10
         DUCKDB_VERSION: 0.10.2
+      image: reitorly:latest
+      container_name: reitorly
     volumes:
       - data:/app/data
     environment:
       PYTHONUNBUFFERED: "1"
+      # Add other environment variables here
     ports:
       - "3000:3000"
     healthcheck:
@@ -27,7 +30,11 @@ services:
         reservations:
           cpus: '0.25'
           memory: 256M
-
+      logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 volumes:
   data:
     driver: local
