@@ -5,7 +5,7 @@ This application showcases how to combine LLMs, semantic data modeling to effort
 It combines the following technologies: 
   * [Malloy](https://github.com/malloydata/malloy) which is a modern open source language for analyzing, transforming, and modeling data.
 Malloy queries are seamlessly translate into SQL, optimized for your database.
-  * [Duckdb]
+  * [Duckdb](https://duckdb.org/) is an OLAP runtime 
   * [Gorilla](https://github.com/ShishirPatil/gorilla) is a runtime for LLM-generated actions like code, API calls, and more. [Gorilla execution](https://gorilla.cs.berkeley.edu/) is an advanced Large Language Model (LLM) designed to effectively interact with a wide range of APIs, enhancing the capabilities of LLMs in real-world applications. The [Gorilla Open functions](https://huggingface.co/gorilla-llm/gorilla-openfunctions-v2) is explained in the following [document](https://konghq.com/blog/engineering/gorilla-llm).
   * [Marimo](https://marimo.io/) is an open-source reactive notebook for Python. It is reproducible, git-friendly, executable as a script, and shareable as an app.
   * [Polars](https://duckdb.org/docs/guides/python/polars.html) is a python library (integrated at Rust) with supports [Arrow](https://arrow.apache.org/docs/python/index.html) and it is compatible.
