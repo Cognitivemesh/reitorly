@@ -22,6 +22,14 @@
 * Data Persistence: Utilize databases (e.g., SQLite) for efficient data storage and retrieval.
 * API Integration: Incorporate financial APIs for real-time data and trading capabilities.
 * Visualization: Use libraries like Taipy with Plotly for clear and informative charts.
+* Importing CSV expense data
+* Creating an Expense class to represent each expense
+* Structuring the main project files and folders
+* Storing expenses in lists or dictionaries
+* Writing expenses to a database file for saving
+* Loading expenses from database file when starting the app
+* Summarizing expenses by categories and totals
+* Calculating budgets and alerts
 * Customization: Allow users to define custom categories, accounts, and asset types.
 * Reporting: Implement comprehensive reporting features for financial analysis.
 * Security: Ensure sensitive financial data is properly secured and encrypted.
