@@ -1,0 +1,35 @@
+name: Validate SQL Scripts
+
+on: [push, pull_request]
+
+jobs:
+  validate-sql:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up SQLite
+      run: sudo apt-get install -y sqlite3
+
+    - name: Create SQLite Database
+      run: |
+        sqlite3 test.db < sql/schema.sql
+        sqlite3 test.db < sql/data.sql
+
+    - name: Run validation queries
+      run: |
+        sqlite3 test.db "SELECT COUNT(*) FROM your_table;" # Example query
+        sqlite3 test.db "SELECT * FROM your_table WHERE condition;" # Another example query
+
+    - name: Check for SQL anti-patterns
+      uses: yokawasa/action-sqlcheck@v1.4.0
+      with:
+        post-comment: true
+        risk-level: 3
+        token: ${{ secrets.GITHUB_TOKEN }}
+        postfixes: |
+          sql
+        directories: |
+          sql
