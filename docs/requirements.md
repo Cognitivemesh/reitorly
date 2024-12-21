@@ -28,13 +28,31 @@ A fully functional expense tracker and asset manager.Visualizations and reportin
 
 Testing: Implement unit and integration tests for all critical features.
 Documentation: Provide clear, user-friendly setup guides and usage documentation.
+
+## Design and Architecture
+
+### Code Structure
+
 * Modular Design: Organize code into logical modules for better maintainability.
+* Structuring the main project files and folders
+* Follow modular design principles for maintainability.
+* Use PEP 8 guidelines for code consistency.
+### Data Handling
+* Database Integration: Use SQLite or similar for efficient data storage and retrieval.
+* Importing CSV expense data
+Data Security: Encrypt sensitive financial data to ensure security.
+### Visualization
+Utilize libraries like Taipy with Plotly for clear and informative visual charts.
+### API Integration
+Incorporate financial APIs for real-time market data and analysis.
+
+
 * Data Persistence: Utilize databases (e.g., SQLite) for efficient data storage and retrieval.
 * API Integration: Incorporate financial APIs for real-time data and trading capabilities.
-* Visualization: Use libraries like Taipy with Plotly for clear and informative charts.
-* Importing CSV expense data
+
+
 * Creating an Expense class to represent each expense
-* Structuring the main project files and folders
+
 * Storing expenses in lists or dictionaries
 * Writing expenses to a database file for saving
 * Loading expenses from database file when starting the app
