@@ -26,28 +26,36 @@ A fully functional expense tracker and asset manager.Visualizations and reportin
 
 ## Additional Features
 
-Testing: Implement unit and integration tests for all critical features.
-Documentation: Provide clear, user-friendly setup guides and usage documentation.
+* Testing: Implement unit and integration tests for all critical features. Pytest Functions: Validates each function and the expense, income and asset class.
+* Logging: The logging system helps to track simulation and database processes.
+* Documentation: Provide clear, user-friendly setup guides and usage documentation.
 
 ## Design and Architecture
 
 ### Code Structure
 
 * Modular Design: Organize code into logical modules for better maintainability.
-* Structuring the main project files and folders
+* Structuring the main project files and folders.
 * Follow modular design principles for maintainability.
 * Use PEP 8 guidelines for code consistency.
-### Data Handling
-* Database Integration: Use SQLite or similar for efficient data storage and retrieval.
-* Importing CSV expense data
-Data Security: Encrypt sensitive financial data to ensure security.
-### Visualization
-Utilize libraries like Taipy with Plotly for clear and informative visual charts.
-### API Integration
-Incorporate financial APIs for real-time market data and analysis.
 
+
+  
+### Data Handling
 
 * Data Persistence: Utilize databases (e.g., SQLite) for efficient data storage and retrieval.
+* Importing CSV expense data
+* Data Handling: Use duckdb and polars for efficient data querying and manipulation.çData Security: Encrypt sensitive financial data to ensure security.
+
+### Visualization
+Utilize libraries like Taipy with Plotly for clear and informative visual charts.
+
+### API Integration
+Incorporate financial APIs for real-time market data and analysis.
+Deployment: You can deploy this Dockerized app to cloud platforms like AWS, Google Cloud, or Azure.
+
+
+
 * API Integration: Incorporate financial APIs for real-time data and trading capabilities.
 
 
