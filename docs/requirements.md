@@ -36,3 +36,4 @@
 * Testing: Implement unit tests and integration tests for reliability.
 * Documentation: Provide clear documentation for setup, usage, and contribution.
 * Code Style: Follow PEP 8 guidelines for consistent and readable Python code.
+* Generating a Monthly Summary: This function will summarize all the expenses that happened in the current month. It will show the total expenses of the current month and then category-wise total expenses.
