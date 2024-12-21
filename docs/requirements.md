@@ -1,6 +1,11 @@
 # Reitorly requirements
 
-* The reports are monthly, weekly and daily.
+## Reiorly Overview
+The system should include:
+
+A fully functional expense tracker and asset manager.Visualizations and reporting features for actionable insights. A secure and user-friendly interface.
+
+* Monthly Summary Function: Generate a monthly summary showing total expenses and category-wise breakdown. The reports are monthly, weekly and daily.
 * There different types of expenses: *Needs* are the expenses you cannot avoid like monthly bills. These are the following:
   * **Housing:** Mortgage or rent; homeowners or renters insurance; property tax (if not already in the mortgage payment).
   * **Transportation:** Car payment, gas, maintenance and auto insurance; public transportation. 
@@ -18,6 +23,11 @@
   * Cable or streaming packages.
   * Self-care treats like spa visits and pedicures.
   * Home decor.
+
+## Additional Features
+
+Testing: Implement unit and integration tests for all critical features.
+Documentation: Provide clear, user-friendly setup guides and usage documentation.
 * Modular Design: Organize code into logical modules for better maintainability.
 * Data Persistence: Utilize databases (e.g., SQLite) for efficient data storage and retrieval.
 * API Integration: Incorporate financial APIs for real-time data and trading capabilities.
