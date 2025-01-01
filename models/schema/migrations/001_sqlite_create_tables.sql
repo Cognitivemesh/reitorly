@@ -13,13 +13,29 @@ CREATE TABLE Owners IF NOT EXISTS(
   ZipCode TEXT NOT NULL
 );
 
+-- 1. Property (Propiedad)
+CREATE TABLE Property (
+  PropertyID INTEGER PRIMARY KEY, 
+  Address TEXT NOT NULL, 
+  City TEXT NOT NULL, 
+  State TEXT NOT NULL, 
+  ZipCode TEXT NOT NULL, -- Código Postal
+  PropertyType TEXT NOT NULL, -- Tipo de Propiedad
+  SquareFootage REAL NOT NULL, -- Pies Cuadrados
+  Bedrooms INTEGER NOT NULL, -- Habitaciones
+  Bathrooms REAL NOT NULL, -- Baños
+  YearBuilt INTEGER NOT NULL, -- Año de Construcción
+  OwnerID INTEGER, -- ID de Propietario
+  FOREIGN KEY (OwnerID) REFERENCES Owner(OwnerID)
+);
+
 -- Properties
 CREATE TABLE Properties IF NOT EXISTS(
-  PropertyID INTEGER PRIMARY KEY,
+  PropertyID INTEGER PRIMARY KEY, -- ID de Propiedad
   OwnerID INTEGER NOT NULL,
-  Address TEXT NOT NULL,
-  City TEXT NOT NULL,
-  State TEXT NOT NULL,
+  Address TEXT NOT NULL, -- Dirección
+  City TEXT NOT NULL, -- Ciudad
+  State TEXT NOT NULL, -- Estado
   ZipCode TEXT NOT NULL,
   PropertyType TEXT NOT NULL,
   SquareFootage REAL NOT NULL,
