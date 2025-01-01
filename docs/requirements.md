@@ -1,9 +1,11 @@
 # Reitorly requirements
 
-## Reiorly Overview
+## Reitorly Overview
 The system should include:
 
 A fully functional expense tracker and asset manager.Visualizations and reporting features for actionable insights. A secure and user-friendly interface.
+
+## Reitorly features
 
 * Monthly Summary Function: Generate a monthly summary showing total expenses and category-wise breakdown. The reports are monthly, weekly and daily.
 * There different types of expenses: *Needs* are the expenses you cannot avoid like monthly bills. These are the following:
