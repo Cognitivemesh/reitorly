@@ -1,0 +1,41 @@
+[project]
+name = "reitorly"
+version = "0.1.0"
+description = "Financial application for Asset and Budget management"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "taipy>=3.1.1,<4.0.2",
+  "taipy-gui==3.1.4",
+  "pyarrow>=15.0.0,<16.0.0",
+  "polars>=0.20.26",
+  "networkx>=3.0",
+  "pyvis>=0.3.2",
+  "duckdb>=0.10.2",
+  "loguru>=0.5.3",
+  "gorilla_cli",
+  "pydantic>=1.9.0,<2.0.0",
+  "sqlmodel>=0.0.6",
+  "sqlalchemy>=2.0.16,<=2.0.30"
+]
+license = { text = "MIT" }
+authors = [
+  { name = "cognitivemesh", email = "cognitivemesh@gmail.com" },
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.1.2",
+  "flake8>=4.0.1",
+]
+
+[build-system]
+requires = ["setuptools>=64.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["app*", "models*"]

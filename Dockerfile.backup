@@ -1,0 +1,75 @@
+# syntax=docker/dockerfile:1.4
+# ================================
+# Build Stage
+# ================================
+FROM python:3.11-slim AS builder
+
+# Install build dependencies and tools
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    git \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install uv
+RUN curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR=/usr/local/bin sh
+
+# Set environment variables for pip and uv; use /opt/venv as the virtual environment directory
+ENV PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONUSERBASE=/opt/venv \
+    PATH="/opt/venv/bin:$PATH"
+
+# Set working directory
+WORKDIR /app
+
+# Copy the entire project into the container
+COPY . /app/
+
+# Install dependencies using uv (this will install Taipy and others into /opt/venv)
+RUN uv sync \
+    && uv lock \
+    && uv tree \
+    && ls -la /opt/venv
+
+# ================================
+# Runtime Stage
+# ================================
+FROM python:3.11-slim
+
+# Create a non-root user with a fixed UID for consistency
+RUN useradd --create-home --uid 1000 appuser
+
+# Set environment variables so that Python uses the virtual environment at /opt/venv
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONUSERBASE=/opt/venv \
+    PATH="/opt/venv/bin:${PATH}"
+
+# Install any runtime dependencies (here, installing curl for healthcheck)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /app
+
+# --- Important: Copy the virtual environment from the builder stage ---
+COPY --from=builder /opt/venv /opt/venv
+
+# Copy the application code with the appropriate ownership
+COPY --chown=appuser:appuser --from=builder /app /app
+
+# Expose the port your application listens on (adjust as necessary)
+EXPOSE 3500
+
+# Debug: Check that Python and pip in the virtual environment are working
+RUN /opt/venv/bin/python --version
+RUN /opt/venv/bin/pip list
+
+# Healthcheck command to ensure the application is responsive
+HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
+  CMD curl -f http://localhost:3500/ || exit 1
+
+# Command to run your application
+CMD ["/opt/venv/bin/python", "app/helloworld.py"]

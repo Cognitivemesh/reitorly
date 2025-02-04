@@ -1,36 +1,24 @@
-version: '3.8'
-
 services:
   reitorly:
     build:
       context: .
       args:
-        PYTHON_VERSION: 3.10
-        DUCKDB_VERSION: 0.10.2
-      image: reitorly:latest
-      container_name: reitorly
+        PYTHON_VERSION: 3.11
+    container_name: reitorly
     volumes:
       - data:/app/data
     environment:
       PYTHONUNBUFFERED: "1"
       # Add other environment variables here
     ports:
-      - "3000:3000"
+      - "3500:3500"
     healthcheck:
       test: ["CMD", "python", "-c", "import gorilla_cli; import duckdb"]
       interval: 30s
       timeout: 10s
       retries: 3
     restart: unless-stopped
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 512M
-        reservations:
-          cpus: '0.25'
-          memory: 256M
-      logging:
+    logging:
       driver: "json-file"
       options:
         max-size: "10m"

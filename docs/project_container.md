@@ -1,4 +1,7 @@
-# Dockerfile
+# Project container
+The project container includes the **Dockerfile** and the **Docker-Compose**.
+
+## Dockerfile
 
 * The **Dockerfile** has the following features:
 
@@ -17,3 +20,29 @@
 5) Healthcheck Enhancement:
 
 6) Removal of Unused Volumes Definition
+
+## Simulating Backups and Reports
+
+* Run the container.
+
+```bash
+make run
+```
+
+* Simulate a backup:
+
+```bash
+make simulate-backup
+```
+
+* Generate a report:
+
+```bash
+make report
+```
+
+* Clean backups and logs:
+
+```bash
+make clean
+```
